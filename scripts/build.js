@@ -13,7 +13,6 @@ process.on('unhandledRejection', err => {
 
 // Ensure environment variables are read.
 require('../config/env');
-console.log(process.env)
 const path = require('path');
 const chalk = require('chalk');
 const fs = require('fs-extra');
