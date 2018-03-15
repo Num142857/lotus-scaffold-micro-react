@@ -173,6 +173,7 @@ module.exports = {
           // in the main CSS file.
           {
             test: /\.css$/,
+            exclude: [path.resolve(__dirname, '../node_modules'), path.resolve(__dirname, '../src/index.css')],
             loader: ExtractTextPlugin.extract(
               Object.assign(
                 {
