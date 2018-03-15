@@ -1,4 +1,4 @@
-import { observable, action, computed, useStrict } from 'MobX';
+import { observable, action, computed, useStrict } from 'mobx';
 class Store {
     @observable todos = [{
         title: "todo标题",
