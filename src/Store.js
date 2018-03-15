@@ -12,6 +12,7 @@ class Store {
     ccc = false
 
     @action changeTodoTitle({ index, title }) {
+        console.log("我在这里")
         this.todos[index].title = title
     }
     @action aaa() {
