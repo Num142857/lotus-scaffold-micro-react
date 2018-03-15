@@ -101,6 +101,7 @@
     "name": "react",
     "prefix": "/react/",
     "main": "/react/main.js",
+    
     "store":"/react/store.js"
   },
   "devDependencies": {
