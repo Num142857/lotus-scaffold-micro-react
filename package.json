@@ -100,7 +100,8 @@
   "registerConfig": {
     "name": "react",
     "prefix": "/react/",
-    "main": "/react/main.js"
+    "main": "/react/main.js",
+    "store":"/react/store.js"
   },
   "devDependencies": {
     "babel-plugin-transform-decorators-legacy": "^1.3.4",
