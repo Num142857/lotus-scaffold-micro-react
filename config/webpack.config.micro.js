@@ -225,7 +225,6 @@ module.exports = {
           },
           {
             test: /\.css$/,
-            // exclude: [path.resolve(__dirname, '../node_modules'), path.resolve(__dirname, '../src/App.css')],
             include: [path.resolve(__dirname, '../src/index.less'), path.resolve(__dirname, '../src/App.css')],
             use: ['style-loader', 'css-loader']
             // Note: this won't work without `new ExtractTextPlugin()` in `plugins`.
