@@ -1,3 +1,4 @@
+import { observable, action, computed, useStrict } from 'MobX';
 class Store {
     @observable todos = [{
         title: "todo标题",
@@ -22,4 +23,4 @@ class Store {
     }
 }
 
-export default new Store();
+export default store =  new Store();
