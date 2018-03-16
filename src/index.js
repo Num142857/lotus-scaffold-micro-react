@@ -10,7 +10,7 @@ import registerServiceWorker from './registerServiceWorker';
 const reactLifecycles = singleSpaReact({
     React,
     ReactDOM,
-    rootComponent: (spa) => <App customProps={spa.customProps}/>,
+    rootComponent: (spa) => <App store={spa.customProps.store} autorun ={spa.customProps.autorun}/>,
     domElementGetter: () => document.getElementById('root')
   });
   
