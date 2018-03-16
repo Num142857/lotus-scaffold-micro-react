@@ -8,7 +8,6 @@ import store from './Store';
 
 @observer
 class TodoBox extends Component  {
-
   render() {
     console.log('render');
     return (
