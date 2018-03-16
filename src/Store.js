@@ -1,4 +1,4 @@
-import { observable, action, computed, useStrict } from 'mobx';
+import { observable, action, computed, useStrict, autorun } from 'mobx';
 class Store {
     @observable todos = [{
         title: "todo标题",
@@ -32,4 +32,5 @@ class Store {
     }
 }
 
+export { observable, action, computed, useStrict, autorun };
 export default new Store();
