@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import {observable, action, computed, useStrict} from 'mobx';
+import { observable, action, computed, useStrict, autorun} from 'mobx';
 import {observer} from 'mobx-react';
 // import store from './Store';
-
+autorun(autorun(function () {
+  console.log("数据变动了");
+}))
 
 @observer
 class TodoBox extends Component  {
