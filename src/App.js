@@ -2,15 +2,16 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import {observable, action, computed, useStrict} from 'mobx';
-import {observer} from 'mobx-react';
+import { observer, inject} from 'mobx-react';
 // import store from './Store';
 
 
-@observer
+
+@inject("store") @observer
 class TodoBox extends Component  {
   render() {
     console.log('render');
-    console.log(this.props.store)
+    console.log(this.props)
     return (
       <div>
         <Test store={this.props.store}/>
@@ -80,7 +81,7 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
-        <TodoBox store={this.props.customProps.store.default} />
+        <TodoBox store={this.props.store.default} />
       </div>
     );
   }
