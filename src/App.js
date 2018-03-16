@@ -8,8 +8,15 @@ autorun(autorun(function () {
   console.log("数据变动了");
 }))
 
+function testRun(){
+  console.log("数据真的变动了")
+}
 @observer
 class TodoBox extends Component  {
+  constructor(){
+  super()
+  this.props.store.autorun(testRun)
+  }
   render() {
     console.log('render');
     console.log(this.props.store)
