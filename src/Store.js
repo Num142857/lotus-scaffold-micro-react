@@ -1,4 +1,5 @@
 import { observable, action, computed, useStrict, autorun } from 'mobx';
+alert()
 class Store {
     @observable todos = [{
         title: "todo标题",
