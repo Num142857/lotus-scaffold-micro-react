@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { observable, action, computed, useStrict, autorun} from 'mobx';
+import {autorun} from 'mobx';
 import {observer} from 'mobx-react';
 // import store from './Store';
 autorun(autorun(function () {
@@ -52,6 +52,7 @@ class TodoBox extends Component  {
 }
 
 var i=0;
+@observer
 class Test extends Component  {
 
   render() {
@@ -70,7 +71,7 @@ class Test extends Component  {
   }
 }
 
-
+@observer
 class App extends Component {
   constructor(props){
     super(props)
