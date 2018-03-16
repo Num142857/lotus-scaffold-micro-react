@@ -69,6 +69,7 @@ class App extends Component {
     console.log(this.props)
   }
   render() {
+    console.log(this.props)
     return (
       <div className="App">
         <header className="App-header">
