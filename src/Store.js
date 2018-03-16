@@ -20,9 +20,11 @@ class Store {
 
     @action countPlus() {
         this.count ++
+        console.log(this.count)
     }
     @action countSubtraction() {
         this.count --
+        console.log(this.count)
     }
 
     @computed get unfinishedTodos() {
