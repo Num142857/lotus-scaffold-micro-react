@@ -90,8 +90,10 @@
   },
   "babel": {
     "presets": [
-      "react-app",
-      "react-native-stage-0/decorator-support"
+      "react-app"
+    ],
+    "plugins": [
+      "transform-decorators-legacy"
     ]
   },
   "eslintConfig": {
@@ -101,7 +103,7 @@
     "name": "react",
     "prefix": "/react/",
     "main": "/react/main.js",
-    "store":"/react/store.js"
+    "store": "/react/store.js"
   },
   "devDependencies": {
     "babel-plugin-transform-decorators-legacy": "^1.3.4",
