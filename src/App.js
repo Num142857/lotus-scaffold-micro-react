@@ -27,11 +27,11 @@ class TodoBox extends Component  {
 
         <div>
           <input type="button" onClick={() => {
-            this.props.store.countPlus();
+            this.props.store.store.countPlus();
           }} value="+" />
-          {this.props.store.count}
+          {this.props.store.store.count}
           <input type="button" onClick={() => {
-            this.props.store.countSubtraction();
+            this.props.store.store.countSubtraction();
           }} value="-" />
 
         </div>
