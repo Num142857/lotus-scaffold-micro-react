@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import {observable, action, computed, useStrict} from 'mobx';
 import {observer} from 'mobx-react';
-import store from './Store';
+// import store from './Store';
 
 
 @observer
@@ -32,7 +32,7 @@ class TodoBox extends Component  {
           <input type="button" onClick={() => {
             this.props.store.countPlus();
           }} value="+" />
-          {store.count}
+          {this.props.store.count}
           <input type="button" onClick={() => {
             this.props.store.countSubtraction();
           }} value="-" />
