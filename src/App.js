@@ -12,6 +12,7 @@ autorun(autorun(function () {
 class TodoBox extends Component  {
   render() {
     console.log('render');
+    console.log(this.props.store)
     return (
       <div>
         <Test store={this.props.store}/>
