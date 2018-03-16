@@ -10,6 +10,7 @@ import {observer} from 'mobx-react';
 class TodoBox extends Component  {
   render() {
     console.log('render');
+    console.log(this.props.store)
     return (
       <div>
         <Test store={this.props.store}/>
