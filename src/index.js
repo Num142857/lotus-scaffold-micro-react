@@ -4,17 +4,13 @@ import singleSpaReact from 'single-spa-react';
 import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
-import { observer, inject, Provider} from 'mobx-react';
+
 // ReactDOM.render(<App />, document.getElementById('root'));
 
 const reactLifecycles = singleSpaReact({
     React,
     ReactDOM,
-    rootComponent: (spa) => {
-      return <Provider store={spa.customProps}>
-                <App />
-        </Provider>
-    },
+    rootComponent: (spa) => <App customProps={spa.customProps}/>,
     domElementGetter: () => document.getElementById('root')
   });
   

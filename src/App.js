@@ -2,19 +2,23 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import {observable, action, computed, useStrict} from 'mobx';
-import { observer, inject} from 'mobx-react';
+import {observer} from 'mobx-react';
 // import store from './Store';
 
 
-
-@inject("store") @observer
+@observer
 class TodoBox extends Component  {
   render() {
     console.log('render');
-    console.log(this.props.store.store.default)
     return (
       <div>
         <Test store={this.props.store}/>
+        <ul>
+          { /* 把 unfinishedTodos 换成 todos，点击修改标题就会在控制台打印 "render".*/ }
+          {this.props.store.unfinishedTodos.map(
+            (todo,index) => <li key={index}>{todo.title}</li>
+          )}
+        </ul>
         <div>
           <input type="button" onClick={() => {
             this.props.store.changeTodoTitle({index:0,title:"修改后111111111111111的todo标题"});
@@ -26,11 +30,11 @@ class TodoBox extends Component  {
 
         <div>
           <input type="button" onClick={() => {
-            this.props.store.store.default.countPlus();
+            this.props.store.countPlus();
           }} value="+" />
-          {this.props.store.store.default.count}
+          {this.props.store.count}
           <input type="button" onClick={() => {
-            this.props.store.store.default.countSubtraction();
+            this.props.store.countSubtraction();
           }} value="-" />
 
         </div>
@@ -75,7 +79,7 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
-        <TodoBox />
+        <TodoBox store={this.props.customProps.store.default} />
       </div>
     );
   }
