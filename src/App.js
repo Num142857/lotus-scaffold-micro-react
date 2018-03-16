@@ -15,9 +15,10 @@ function testRun(){
 class TodoBox extends Component  {
   constructor(){
   super()
-  this.props.store.autorun(testRun)
+ 
   }
   render() {
+    this.props.store.autorun(testRun)
     console.log('render');
     console.log(this.props.store)
     return (
