@@ -28,6 +28,14 @@ class TodoBox extends Component  {
             this.props.store.aaa();
           }} value="修改标题"/>
         </div>
+
+        <div>
+          <input type="button" onClick={() => {
+            this.props.store.countPlus();
+          }} value="+" />
+          {store.count}
+
+        </div>
       </div>
     )
   }

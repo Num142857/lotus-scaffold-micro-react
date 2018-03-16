@@ -8,8 +8,7 @@ class Store {
         done: true,
     }];
 
-    bbb = 0
-    ccc = false
+    @observable count = 0
 
     @action changeTodoTitle({ index, title }) {
         console.log("我在这里")
@@ -17,6 +16,10 @@ class Store {
     }
     @action aaa() {
         alert()
+    }
+
+    @action countPlus() {
+        this.count ++
     }
 
     @computed get unfinishedTodos() {
