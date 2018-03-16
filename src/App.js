@@ -17,6 +17,9 @@ class TodoBox extends Component  {
   super()
  
   }
+  componentWillReceiveProps(nextProps){
+    console.log("nextProps", nextProps)
+  }
   render() {
     this.props.store.autorun(testRun)
     console.log('render');
