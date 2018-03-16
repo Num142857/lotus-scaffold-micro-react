@@ -31,6 +31,5 @@ class Store {
         return this.todos.filter((todo) => todo.done)
     }
 }
-
-export { observable, action, computed, useStrict, autorun };
-export default new Store();
+let store = new Store();
+export { observable, action, computed, useStrict, autorun, store };
