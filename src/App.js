@@ -34,6 +34,9 @@ class TodoBox extends Component  {
             this.props.store.countPlus();
           }} value="+" />
           {store.count}
+          <input type="button" onClick={() => {
+            this.props.store.countSubtraction();
+          }} value="-" />
 
         </div>
       </div>

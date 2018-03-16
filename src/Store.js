@@ -21,6 +21,9 @@ class Store {
     @action countPlus() {
         this.count ++
     }
+    @action countSubtraction() {
+        this.count --
+    }
 
     @computed get unfinishedTodos() {
         return this.todos.filter((todo) => todo.done)
