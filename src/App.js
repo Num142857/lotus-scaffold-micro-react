@@ -11,16 +11,10 @@ import { observer, inject} from 'mobx-react';
 class TodoBox extends Component  {
   render() {
     console.log('render');
-    console.log(this.props)
+    console.log(this.props.store.store.default)
     return (
       <div>
         <Test store={this.props.store}/>
-        <ul>
-          { /* 把 unfinishedTodos 换成 todos，点击修改标题就会在控制台打印 "render".*/ }
-          {this.props.store.unfinishedTodos.map(
-            (todo,index) => <li key={index}>{todo.title}</li>
-          )}
-        </ul>
         <div>
           <input type="button" onClick={() => {
             this.props.store.changeTodoTitle({index:0,title:"修改后111111111111111的todo标题"});
@@ -32,11 +26,11 @@ class TodoBox extends Component  {
 
         <div>
           <input type="button" onClick={() => {
-            this.props.store.countPlus();
+            this.props.store.store.default.countPlus();
           }} value="+" />
-          {this.props.store.count}
+          {this.props.store.store.default.count}
           <input type="button" onClick={() => {
-            this.props.store.countSubtraction();
+            this.props.store.store.default.countSubtraction();
           }} value="-" />
 
         </div>
