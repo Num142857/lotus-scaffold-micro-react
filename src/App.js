@@ -8,6 +8,7 @@ autorun(autorun(function () {
   console.log("数据变动了");
 }))
 
+
 function testRun(){
   console.log("数据真的变动了")
 }
