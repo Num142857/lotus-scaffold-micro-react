@@ -1,0 +1,11 @@
+module.exports={
+    "files":[
+        "config/",
+        "public/",
+        "scripts/",
+        "src/",
+        ".gitignore",
+        "package.json",
+        "README.md"
+    ]
+}
