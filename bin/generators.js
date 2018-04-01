@@ -21,8 +21,9 @@ inquirer
           let targetPath = process.cwd() + '/' + filePath
           try {
             await fse.copy(basePath, targetPath);
-            log.info("success:", filePath)
+            log.info("success:", filePath,'------>',targetPath)
           } catch (error) {
+            log.warn("warn:", filePath,'------>',targetPath)
             log.warn(error)
           }
       }

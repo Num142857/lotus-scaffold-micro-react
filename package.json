@@ -1,6 +1,6 @@
 {
   "name": "lotus-scaffold-micro-react",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "bin": {
     "lotus-scaffold-micro-react": "./bin/generators.js"
   },
