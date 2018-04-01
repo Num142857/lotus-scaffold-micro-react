@@ -23,7 +23,6 @@ inquirer
             await fse.copy(basePath, targetPath);
             log.info("success:", filePath)
           } catch (error) {
-            shell.exit(1);
             log.warn(error)
           }
       }
@@ -37,17 +36,15 @@ inquirer
         packageConfig.registerConfig.main = `/${answers.name}/main.js`
         packageConfig.registerConfig.store = `/${answers.name}/store.js`
     } catch (error) {
-        shell.exit(1);
         log.warn('package读取失败',error)
     }
 
     try {
       await fse.writeJson(`${process.cwd()}/package.json`, packageConfig ,{spaces:2})
       log.info("脚手架生成完毕")
-      process.exit();
-      shell.exit(0);
+      process.exit(0);
     } catch (error) {
-      shell.exit(1);
+      process.exit(1);
       log.warn('脚手架生成失败',error)
     }
 
