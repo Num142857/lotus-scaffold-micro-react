@@ -15,7 +15,7 @@ class App extends Component {
   constructor(props){
     super(props)
     console.log(this.props.store)
-    appState = observable(this.props.store.store)
+    appState = observable(this.props.store)
   }
   render() {
     let  store  = appState;
