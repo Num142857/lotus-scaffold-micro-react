@@ -12,7 +12,7 @@ class App extends Component {
     console.log(this.props.store)
   }
   render() {
-    let store = this.store
+    let store = this.store.store
     return (
       <div className="App">
         <header className="App-header">
