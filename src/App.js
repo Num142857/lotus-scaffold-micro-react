@@ -28,9 +28,9 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
-        <button onClick={store.addition}>+</button> 
+        <button onClick={store.addition.bind(store)}>+</button> 
         {store.count}
-        <button onClick={store.subtraction}>-</button>
+        <button onClick={store.subtraction.bind(store)}>-</button>
       </div>
     );
   }
