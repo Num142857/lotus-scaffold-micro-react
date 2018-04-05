@@ -14,7 +14,7 @@ if(process.env.NODE_ENV==='development'){
 const reactLifecycles = singleSpaReact({
     React,
     ReactDOM,
-    rootComponent: (spa) => <App store={spa.customProps.store} autorun ={spa.customProps.autorun}/>,
+    rootComponent: (spa) => <App store={spa.customProps.store}/>,
     domElementGetter: () => document.getElementById('root')
   });
   
