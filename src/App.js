@@ -3,11 +3,17 @@ import logo from './logo.svg';
 import './App.css';
 import { observable, action } from 'mobx';
 import {observer} from 'mobx-react';
+import Rx from 'rxjs/Rx';
+
+
 
 @observer
 class App extends Component {
   constructor(props){
     super(props)
+    setInterval(()=>{
+      console.log('22222222',this.props.store)
+    },1000)
   }
   render() {
     let {store} = this.props.store;
