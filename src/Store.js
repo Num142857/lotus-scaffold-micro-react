@@ -1,16 +1,15 @@
-import { observable, action } from 'mobx';
 class Store {
-    @observable  count = 0
+   count = 0
 
-    @action.bound alert() {
+   alert() {
         alert()
     }
 
-    @action.bound addition (){
+    addition (){
         this.count ++
     }
 
-    @action.bound subtraction (){
+    subtraction (){
         this.count --
     }
 }
