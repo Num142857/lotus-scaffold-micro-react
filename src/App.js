@@ -1,22 +1,28 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import {autorun} from 'mobx';
+import { observable, action } from 'mobx';
 import {observer} from 'mobx-react';
-// import store from './Store';
-autorun(autorun(function () {
-  console.log("数据变动了");
-}))
 
-
-function testRun(){
-  console.log("数据真的变动了")
+class Store {
+    @action.bound init (store){
+      for (const key in store) {
+        if (store.hasOwnProperty(key)) {
+          const element = store[key];
+          this[key] = element
+        }
+      }
+  }
 }
+
+let store = new Store();
+
 @observer
 class App extends Component {
   constructor(props){
     super(props)
-    console.log(this.props)
+    
+    store.init(this.props.store.store)
   }
   render() {
     console.log(this.props)
@@ -29,9 +35,9 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
-        {/* <button onClick={store.addition}>+</button> 
+        <button onClick={store.addition}>+</button> 
         {store.count}
-        <button onClick={store.subtraction}>-</button> */}
+        <button onClick={store.subtraction}>-</button>
       </div>
     );
   }
