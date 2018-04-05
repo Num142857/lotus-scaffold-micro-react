@@ -9,6 +9,7 @@ class App extends Component {
   constructor(props){
     super(props)
     this.store  = observable(this.props.store)
+    console.log(this.props)
   }
   render() {
     let store = this.store
