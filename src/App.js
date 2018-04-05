@@ -7,9 +7,9 @@ import Rx from 'rxjs/Rx';
 
 
 var appState ;
-autorun(()=>{
+(autorun(() => {
   console.log(appState)
-})
+}))()
 @observer
 class App extends Component {
   constructor(props){
