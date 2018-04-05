@@ -14,7 +14,7 @@ autorun(()=>{
 class App extends Component {
   constructor(props){
     super(props)
-    appState = observable(this.props.store)
+    appState = observable(this.props.store.store)
   }
   render() {
     let  store  = appState;
