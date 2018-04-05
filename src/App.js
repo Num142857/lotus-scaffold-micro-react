@@ -11,6 +11,9 @@ class App extends Component {
     this.store  = observable(this.props.store)
     console.log(this.props.store)
   }
+  state={
+    view:true
+  }
   render() {
     let store = this.store.store
     return (
@@ -22,9 +25,15 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
-        <button onClick={store.addition.bind(store)}>+</button> 
+        <button onClick={()=>{
+          this.setState({view:!this.state.view})
+          store.addition.bind(store)
+        }}>+</button> 
         {store.count}
-        <button onClick={store.subtraction.bind(store)}>-</button>
+        <button onClick={()=>{
+          this.setState({ view: !this.state.view })
+          store.subtraction.bind(store)
+        }}>-</button>
       </div>
     );
   }
