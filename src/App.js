@@ -14,6 +14,7 @@ autorun(()=>{
 class App extends Component {
   constructor(props){
     super(props)
+    console.log(this.props.store)
     appState = observable(this.props.store.store)
   }
   render() {
