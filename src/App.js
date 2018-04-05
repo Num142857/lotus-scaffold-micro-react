@@ -17,7 +17,7 @@ class App extends Component {
     appState = observable(this.props.store)
   }
   render() {
-    let {store} = this.props.store;
+    let { store } = appState;
     console.log(store)
     return (
       <div className="App">
