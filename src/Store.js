@@ -1,17 +1,14 @@
-let store  =  {
+export default  {
    count : 0,
 
    alert() {
         alert()
     },
-
     addition (){
         this.count ++
     },
-
     subtraction (){
         this.count --
     }
 }
 
-export { store };
