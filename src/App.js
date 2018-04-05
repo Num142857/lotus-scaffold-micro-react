@@ -1,14 +1,25 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import {observable, action, computed, useStrict} from 'mobx';
+import {autorun} from 'mobx';
 import {observer} from 'mobx-react';
 import store from './Store';
+autorun(autorun(function () {
+  console.log("数据变动了");
+}))
 
 
+function testRun(){
+  console.log("数据真的变动了")
+}
 @observer
 class App extends Component {
+  constructor(props){
+    super(props)
+    console.log(this.props)
+  }
   render() {
+    console.log(this.props)
     return (
       <div className="App">
         <header className="App-header">

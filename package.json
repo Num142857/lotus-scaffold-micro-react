@@ -100,8 +100,10 @@
   },
   "babel": {
     "presets": [
-      "react-app",
-      "react-native-stage-0/decorator-support"
+      "react-app"
+    ],
+    "plugins": [
+      "transform-decorators-legacy"
     ]
   },
   "eslintConfig": {

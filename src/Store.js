@@ -1,4 +1,4 @@
-import { observable, action, computed } from 'mobx';
+import { observable, action } from 'mobx';
 class Store {
     @observable  count = 0
 
@@ -14,5 +14,5 @@ class Store {
         this.count --
     }
 }
-
-export default new Store();
+let store = new Store();
+export { store };
