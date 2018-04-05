@@ -3,23 +3,15 @@ import logo from './logo.svg';
 import './App.css';
 import { observable, action, autorun } from 'mobx';
 import {observer} from 'mobx-react';
-import Rx from 'rxjs/Rx';
 
-
-var appState ;
-(autorun(() => {
-  console.log(appState)
-}))()
 @observer
 class App extends Component {
   constructor(props){
     super(props)
-    console.log(this.props.store)
-    appState = observable(this.props.store.store)
+    this.store  = observable(this.props.store)
   }
   render() {
-    let  store   = appState;
-    console.log(store)
+    let store = this.store
     return (
       <div className="App">
         <header className="App-header">
