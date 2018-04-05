@@ -1,19 +1,20 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { observable, action } from 'mobx';
+import { observable, action, autorun } from 'mobx';
 import {observer} from 'mobx-react';
 import Rx from 'rxjs/Rx';
 
 
-
+var appState ;
+autorun(()=>{
+  console.log(appState)
+})
 @observer
 class App extends Component {
   constructor(props){
     super(props)
-    setInterval(()=>{
-      console.log('22222222',this.props.store)
-    },1000)
+    appState = observable(this.props.store)
   }
   render() {
     let {store} = this.props.store;
