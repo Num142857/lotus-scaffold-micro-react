@@ -4,28 +4,14 @@ import './App.css';
 import { observable, action } from 'mobx';
 import {observer} from 'mobx-react';
 
-class Store {
-    @action.bound init (store){
-      for (const key in store) {
-        if (store.hasOwnProperty(key)) {
-          const element = store[key];
-          this[key] = element
-        }
-      }
-  }
-}
-
-let store = new Store();
-
 @observer
 class App extends Component {
   constructor(props){
     super(props)
-    
-    store.init(this.props.store.store)
   }
   render() {
-    console.log(this.props)
+    let {store} = this.props.store;
+    console.log(store)
     return (
       <div className="App">
         <header className="App-header">
