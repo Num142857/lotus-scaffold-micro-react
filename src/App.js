@@ -8,7 +8,7 @@ import {observer} from 'mobx-react';
 class App extends Component {
   constructor(props){
     super(props)
-    this.store  = observable(this.props.store.default)
+    this.store  = observable(this.props.store)
     console.log(this.props.store)
   }
   render() {

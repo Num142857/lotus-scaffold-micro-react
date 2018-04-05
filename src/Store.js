@@ -1,4 +1,4 @@
-module.exports =  {
+export let store = {
    count : 0,
 
    alert() {
