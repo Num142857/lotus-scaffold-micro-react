@@ -27,12 +27,12 @@ class App extends Component {
         </p>
         <button onClick={()=>{
           this.setState({view:!this.state.view})
-          store.addition.bind(store)
+          store.addition()
         }}>+</button> 
         {store.count}
         <button onClick={()=>{
           this.setState({ view: !this.state.view })
-          store.subtraction.bind(store)
+          store.subtraction()
         }}>-</button>
       </div>
     );
