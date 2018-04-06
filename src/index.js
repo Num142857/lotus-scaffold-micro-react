@@ -7,7 +7,7 @@ import registerServiceWorker from './registerServiceWorker';
 import { store} from './Store'
 
 if(process.env.NODE_ENV==='development'){
-  ReactDOM.render(<App store={store} />, document.getElementById('root'));
+  ReactDOM.render(<App store={{ store: store}} />, document.getElementById('root'));
 }
 
 

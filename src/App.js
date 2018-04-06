@@ -8,12 +8,13 @@ import {observer} from 'mobx-react';
 class App extends Component {
   constructor(props){
     super(props)
-    this.store  = observable(this.props.store)
     console.log(this.props.store)
+    this.store  = observable(this.props.store)
+
   }
-  state={
-    view:true
-  }
+  // state={
+  //   view:true
+  // }
   render() {
     let store = this.store.store
     return (
@@ -26,12 +27,12 @@ class App extends Component {
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
         <button onClick={()=>{
-          this.setState({view:!this.state.view})
+          // this.setState({view:!this.state.view})
           store.addition()
         }}>+</button> 
         {store.count}
         <button onClick={()=>{
-          this.setState({ view: !this.state.view })
+          // this.setState({ view: !this.state.view })
           store.subtraction()
         }}>-</button>
       </div>
