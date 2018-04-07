@@ -10,6 +10,7 @@ class App extends Component {
     super(props)
     console.log(this.props.store)
     this.store  = observable(this.props.store)
+    console.log(this.props.store === this.store )
 
   }
   // state={
@@ -17,6 +18,8 @@ class App extends Component {
   // }
   render() {
     let store = this.store.store
+    
+    this.props.store = JSON.parse(JSON.stringify(store))
     return (
       <div className="App">
         <header className="App-header">
@@ -32,6 +35,7 @@ class App extends Component {
         }}>+</button> 
         {store.count}
         <button onClick={()=>{
+          console.log(this.props.store === this.store, this.props.store , this.store)
           // this.setState({ view: !this.state.view })
           store.subtraction()
         }}>-</button>
