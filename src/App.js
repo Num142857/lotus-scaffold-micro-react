@@ -13,12 +13,8 @@ class App extends Component {
     console.log(this.props.store === this.store )
 
   }
-  // state={
-  //   view:true
-  // }
   render() {
     let store = this.store.store
-    
     this.props.store = JSON.parse(JSON.stringify(store))
     return (
       <div className="App">
