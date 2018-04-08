@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import logo from '../../asserts/logo.svg';
 import './App.css';
 import { observable, action, autorun } from 'mobx';
 import {observer} from 'mobx-react';
@@ -15,7 +15,6 @@ class App extends Component {
   }
   render() {
     let store = this.store.store
-    this.props.store = JSON.parse(JSON.stringify(store))
     return (
       <div className="App">
         <header className="App-header">
