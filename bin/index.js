@@ -23,10 +23,11 @@ program
         switch (type) {
             case 'page':
                 console.log('开始生成页面')
+                generate.page(src)
                 break;
 
             case 'component':
-                console.log('开始生成页面')
+                console.log('开始生成组件')
                 generate.component(src)
                 break;
 
@@ -34,7 +35,6 @@ program
                 console.log('参数错误,或者不支持该类型')
                 break;
         }
-        console.log(type, src)
     });
 
 
