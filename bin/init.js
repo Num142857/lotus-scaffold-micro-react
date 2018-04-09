@@ -42,17 +42,17 @@ module.exports = {
           log.warn('package读取失败', error)
         }
         let gitignore = `
-                        # dependencies
-                        /node_modules
+# dependencies
+/node_modules
 
-                        # testing
-                        /coverage
+# testing
+/coverage
 
-                        # production
-                        /build
-                                `
+# production
+/build`
         try {
           await fse.outputFile(`${process.cwd()}/.gitignore`, gitignore)
+          log.info('.gitignore 写入成功')
         } catch (error) {
           log.warn('.gitignore 写入失败', error)
         }

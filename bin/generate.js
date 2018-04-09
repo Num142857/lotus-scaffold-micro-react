@@ -38,6 +38,12 @@ function generate(templatePath,src ){
       .source(templatePath)
       .ignore(`${templatePath}/template.json`)
       .destination(process.cwd() + "/" + src)
+      .use((files, metalsmith, done)=>{
+        var metadata = metalsmith.metadata();
+        let pathArr = src.split('/');
+        metadata['componentName'] = pathArr[pathArr.length-1]
+        done()
+      })
       .use(template)
       .build(function (err) {
         if (err) throw err;
