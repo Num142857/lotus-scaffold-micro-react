@@ -4,7 +4,6 @@ module.exports={
         "public/",
         "scripts/",
         "src/",
-        ".gitignore",
         "package.json",
         "README.md"
     ]

@@ -41,7 +41,22 @@ module.exports = {
         } catch (error) {
           log.warn('package读取失败', error)
         }
+        let gitignore = `
+                        # dependencies
+                        /node_modules
 
+                        # testing
+                        /coverage
+
+                        # production
+                        /build
+                                `
+        try {
+          await fse.write(`${process.cwd()}/.gitignore`, gitignore)
+        } catch (error) {
+          log.warn('.gitignore 写入失败', error)
+        }
+        
         try {
           await fse.writeJson(`${process.cwd()}/package.json`, packageConfig, {
             spaces: 2
@@ -52,9 +67,7 @@ module.exports = {
           process.exit(1);
           log.warn('脚手架生成失败', error)
         }
-
-
-        // log.info(answers,lotusConfig)
+        
       });
 
 

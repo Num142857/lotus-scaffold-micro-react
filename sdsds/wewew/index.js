@@ -5,7 +5,7 @@ import style from './style.less'
 import { Row, Col, Button } from 'antd'
 
 @observer
-export default class 1234 extends Component {
+export default class  extends Component {
     constructor(props) {
       super(props)
       this.state = {
@@ -17,6 +17,6 @@ export default class 1234 extends Component {
     
     componentWillReceiveProps(nextProps) {}
     render() {
-        return(<div>1234</div>)
+        return(<div></div>)
     }
   }

@@ -20,20 +20,10 @@ program
     .description('模板生成')
     .arguments('<type> [src]')  //[]:可选  <>:必选
     .action(function (type, src) {
-        switch (type) {
-            case 'page':
-                console.log('开始生成页面')
-                generate.page(src)
-                break;
-
-            case 'component':
-                console.log('开始生成组件')
-                generate.component(src)
-                break;
-
-            default:
-                console.log('参数错误,或者不支持该类型')
-                break;
+        try {
+            generate[type](src)
+        } catch (error) {
+            
         }
     });
 

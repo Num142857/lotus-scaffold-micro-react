@@ -1,40 +1,58 @@
-
 var Metalsmith = require('metalsmith');
 var consolidate = require('consolidate')
 var inquirer = require('inquirer')
 var path = require('path')
-
+var fs = require('fs')
+const fse = require('fs-extra');
+const util = require('lotusjs-util')
+const log = util.log
 var metalsmith;
 
-module.exports = {
-  component(src) {
-    let templatePath = path.resolve(__dirname, '../.lotus/template/component');
-    generate(templatePath,src)
-  },
-  page(src) {
-    let templatePath = path.resolve(__dirname, '../.lotus/template/page');
-    generate(templatePath,src)
-  }
+module.exports = exportFn()
+//动态获取文件夹信息
+function exportFn() {
+  var dirs = fs.readdirSync(path.resolve(__dirname, '../.lotus/template/'))
+  let fn = {}
+  dirs.forEach( (item) => {
+    fn[item] =  async function (src) {
+      let templatePath = path.resolve(__dirname, '../.lotus/template/' + item);
+      try {
+        let config = await fse.readFile(`${templatePath}/template.json`)
+        config = JSON.parse(config.toString())
+        let message = config.message
+        log.info(message)
+      } catch (error) {
+        log.warn(error)
+      }
+      generate(templatePath, src)
+    }
+  })
+  return fn
 }
 
+//统一生成函数
 function generate(templatePath,src ){
   if (src) {
     //如果有路径,直接生成
     metalsmith = Metalsmith(__dirname)
       .source(templatePath)
+      .ignore(`${templatePath}/template.json`)
       .destination(process.cwd() + "/" + src)
       .use(template)
       .build(function (err) {
         if (err) throw err;
+        log.info('成功完结')
       });
   } else {
     //没有路径的处理,命令行问完问题再生成
     metalsmith = Metalsmith(__dirname)
       .source(templatePath)
+       .ignore(`${templatePath}/template.json`)
       .use(ask)
       .use(template)
       .build(function (err) {
         if (err) throw err;
+        log.info('成功完结')
       });
   }
 }
