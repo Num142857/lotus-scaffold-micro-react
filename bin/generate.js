@@ -8,7 +8,8 @@ var path = require('path')
  */
 
 var metalsmith = Metalsmith(__dirname)
-  .source(path.resolve(__dirname, '../.lotus/template/'))
+  .source(path.resolve(__dirname, '../.lotus/template'))
+  .destination('./dsds/')
   .use(ask)
   .use(template)
   .build(function (err) {
@@ -27,6 +28,7 @@ function ask(files, metalsmith, done) {
   var prompts = ['name', 'repository', 'description', 'license'];
   var metadata = metalsmith.metadata();
   metadata['ComponentName'] = 1234
+  done()
 }
 
 /**
@@ -40,8 +42,10 @@ function ask(files, metalsmith, done) {
 function template(files, metalsmith, done) {
   var keys = Object.keys(files);
   var metadata = metalsmith.metadata();
+  console.log(metadata)
   keys.forEach((file)=>{
     var str = files[file].contents.toString();
+    console.log(str)
     consolidate.handlebars(str, metadata, function (err, res) {
       if (err) return done(err);
       files[file].contents = new Buffer(res);
