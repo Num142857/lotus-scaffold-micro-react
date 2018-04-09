@@ -52,7 +52,7 @@ module.exports = {
                         /build
                                 `
         try {
-          await fse.write(`${process.cwd()}/.gitignore`, gitignore)
+          await fse.outputFile(`${process.cwd()}/.gitignore`, gitignore)
         } catch (error) {
           log.warn('.gitignore 写入失败', error)
         }
@@ -67,7 +67,7 @@ module.exports = {
           process.exit(1);
           log.warn('脚手架生成失败', error)
         }
-        
+
       });
 
 
