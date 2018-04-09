@@ -2,7 +2,7 @@
 
 const program = require('commander');
 const appInfo = require('../package.json')
-
+var generate = require('./generate')
 program
     .version(appInfo.version, '-v, --version')
     .option('-i, --init', '初始化')
@@ -18,7 +18,7 @@ program
     .command('generate')
     .option('-g, --generate', 'Remove recursively')
     .description('模板生成')
-    .arguments('<type> <src>')  //[]:可选  <>:必选
+    .arguments('<type> [src]')  //[]:可选  <>:必选
     .action(function (type, src) {
         switch (type) {
             case 'page':
@@ -27,6 +27,7 @@ program
 
             case 'component':
                 console.log('开始生成页面')
+                generate.component(src)
                 break;
 
             default:
