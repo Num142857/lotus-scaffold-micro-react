@@ -16,7 +16,7 @@ module.exports = {
         message: '给你的项目取个名字吧',
       }, ])
       .then(async function (answers) {
-
+        
         for (let index = 0; index < lotusConfig.files.length; index++) {
           const filePath = lotusConfig.files[index];
           let basePath = path.resolve(__dirname, '../' + filePath)

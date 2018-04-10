@@ -27,6 +27,19 @@ function exportFn() {
       generate(templatePath, src)
     }
   })
+
+  fn.list = function(){
+    inquirer
+      .prompt([{
+        type: 'list',
+        name: 'type',
+        message: '选择你要初始化的模板类型',
+        choices: dirs
+      }]).then((answers)=>{
+        let templatePath = path.resolve(__dirname, '../.lotus/template/' + answers.type);
+        generate(templatePath)
+      })
+  }
   return fn
 }
 

@@ -19,6 +19,10 @@ program
     .description('模板生成')
     .arguments('<type> [src]')  //[]:可选  <>:必选
     .action(function (type, src) {
+        if (type === 'generateList'){
+            generate.list()
+            return
+        }
         try {
             generate[type](src)
         } catch (error) {
@@ -48,6 +52,4 @@ program.on('--help', function () {
 
 program.parse(process.argv);
 
-// todo:
-// 支持简写
 
