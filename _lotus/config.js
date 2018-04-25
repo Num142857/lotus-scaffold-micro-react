@@ -1,5 +1,5 @@
-module.exports={
-    "files":[
+module.exports = {
+    "files": [
         "config/",
         "public/",
         "scripts/",
