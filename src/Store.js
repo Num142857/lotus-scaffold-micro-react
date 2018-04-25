@@ -1,7 +1,9 @@
 import { createStore } from 'redux';
 
 const initialState = {
-    count: 0
+    namespace:"base",
+    count: 0,
+    refresh:0
 };
 
 function reducer(state = initialState, action) {
@@ -14,6 +16,9 @@ function reducer(state = initialState, action) {
             return {
                 count: state.count - 1
             };
+        case 'REFRESH':
+        let refresh = state.refresh ++
+            return Object.assign(state,{refresh});
         default:
             return state;
     }
