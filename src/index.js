@@ -13,7 +13,9 @@ if(process.env.NODE_ENV==='development'){
 const reactLifecycles = singleSpaReact({
     React,
     ReactDOM,
-    rootComponent: (spa) => <RootComponent/>,
+  rootComponent: (spa) => {
+    <RootComponent store={spa.customProps.store} globalEventDistributor={spa.customProps.globalEventDistributor} />
+  },
     domElementGetter: () => document.getElementById('root')
   });
   
@@ -21,12 +23,9 @@ const reactLifecycles = singleSpaReact({
     reactLifecycles.bootstrap,
   ];
   
-export function mount(props) {
-  return reactLifecycles.mount(props).then((rootComponent) => {
-    rootComponent.setStore(props.customProps.store);
-    rootComponent.setGlobalEventDistributor(props.customProps.globalEventDistributor);
-  });
-}
+  export const mount = [
+    reactLifecycles.mount,
+  ];
   
   export const unmount = [
     reactLifecycles.unmount,
