@@ -11,16 +11,16 @@ const initialState = {
 function reducer(state = initialState, action) {
   switch (action.type) {
     case 'INCREMENT':
-      return Object.assign( {
+      return Object.assign( {},{
         count: state.count + 1
       },state);
     case 'DECREMENT':
-      return Object.assign( {
+      return Object.assign({}, {
         count: state.count - 1
       },state);
     case 'REFRESH':
       let refresh = state.refresh++
-        return Object.assign(state, {
+        return Object.assign({},state, {
           refresh
         });
     default:
