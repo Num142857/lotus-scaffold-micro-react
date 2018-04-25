@@ -4,7 +4,7 @@ const fse = require('fs-extra');
 const path = require('path');
 const shell = require("shelljs");
 const child_process = require('child_process')
-const lotusConfig = require('../.lotus/')
+const lotusConfig = require('../config.js')
 const log = util.log
 
 module.exports = {
@@ -16,7 +16,6 @@ module.exports = {
         message: '给你的项目取个名字吧',
       }, ])
       .then(async function (answers) {
-        
         for (let index = 0; index < lotusConfig.files.length; index++) {
           const filePath = lotusConfig.files[index];
           let basePath = path.resolve(__dirname, '../' + filePath)
@@ -29,7 +28,6 @@ module.exports = {
             log.warn(error)
           }
         }
-
         let packageConfig
         try {
           packageConfig = await fse.readJson(`${process.cwd()}/package.json`)

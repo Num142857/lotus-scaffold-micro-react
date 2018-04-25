@@ -1,9 +1,9 @@
 {
   "name": "lotus-scaffold-micro-react",
-  "scaffold":"lotus-scaffold-micro-react",
+  "scaffold": "lotus-scaffold-micro-react",
   "version": "0.1.18",
   "bin": {
-    "lotus-scaffold-micro-react": "./bin/index.js"
+    "lotus-scaffold-micro-react": "_lotus/bin/index.js"
   },
   "dependencies": {
     "autoprefixer": "7.1.6",
@@ -39,12 +39,12 @@
     "inquirer": "^5.2.0",
     "install": "^0.11.0",
     "jest": "20.0.4",
+    "less": "^3.0.1",
     "less-loader": "^4.1.0",
     "lotusjs-util": "^1.0.4",
     "metalsmith": "^2.3.0",
     "mobx": "^4.0.2",
     "mobx-react": "^5.0.0",
-    "npm": "^5.8.0",
     "object-assign": "4.1.1",
     "postcss-flexbugs-fixes": "3.2.0",
     "postcss-loader": "2.0.8",

@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import singleSpaReact from 'single-spa-react';
-import './index.css';
+import './index.less';
 import App from './models/example/App';
 import registerServiceWorker from './registerServiceWorker';
 import { store} from './Store'
