@@ -21,9 +21,12 @@ const reactLifecycles = singleSpaReact({
     reactLifecycles.bootstrap,
   ];
   
-  export const mount = [
-    reactLifecycles.mount,
-  ];
+export function mount(props) {
+  return reactLifecycles.mount(props).then((rootComponent) => {
+    rootComponent.setStore(props.customProps.store);
+    rootComponent.setGlobalEventDistributor(props.customProps.globalEventDistributor);
+  });
+}
   
   export const unmount = [
     reactLifecycles.unmount,
