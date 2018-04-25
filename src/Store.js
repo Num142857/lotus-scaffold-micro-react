@@ -12,7 +12,7 @@ function reducer(state = initialState, action) {
   switch (action.type) {
     case 'INCREMENT':
     var a = 0
-    for (let index = 0; index < 999999; index++) {
+    for (let index = 0; index < 999999999; index++) {
      a++
     }
     console.log(a)
