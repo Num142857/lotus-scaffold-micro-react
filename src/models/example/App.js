@@ -41,9 +41,9 @@ class App extends Component {
         <button onClick={this.decrement}>本地 -</button>
 
         <div>
-          <button onClick={this.globalIncrement}>本地 +</button>
+          <button onClick={this.globalIncrement}>全局 +</button>
           {this.props.count}
-          <button onClick={this.globalDecrement}>本地 -</button>
+          <button onClick={this.globalDecrement}>全局 -</button>
         </div>
       </div>
     );
