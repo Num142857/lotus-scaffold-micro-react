@@ -18,7 +18,7 @@ module.exports = {
       .then(async function (answers) {
         for (let index = 0; index < lotusConfig.files.length; index++) {
           const filePath = lotusConfig.files[index];
-          let basePath = path.resolve(__dirname, '../' + filePath)
+          let basePath = path.resolve(__dirname, '../../' + filePath)
           let targetPath = process.cwd() + '/' + filePath
           try {
             await fse.copy(basePath, targetPath);
