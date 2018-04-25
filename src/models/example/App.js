@@ -25,7 +25,7 @@ class App extends Component {
   globalDecrement = () => {
     this.props.globalEventDistributor.dispatch({ type: 'DECREMENT' });
   };
-  render() {
+  render() { 
     // let store = this.store.store
     return (
       <div className="App">
