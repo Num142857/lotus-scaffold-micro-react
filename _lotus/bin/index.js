@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 const program = require('commander');
-const appInfo = require('../package.json')
+const appInfo = require('../../package.json')
 var generate = require('./generate')
 program
     .version(appInfo.version, '-v, --version')

@@ -11,11 +11,11 @@ var metalsmith;
 module.exports = exportFn()
 //动态获取文件夹信息
 function exportFn() {
-  var dirs = fs.readdirSync(path.resolve(__dirname, '../.lotus/template/'))
+  var dirs = fs.readdirSync(path.resolve(__dirname, '../template/'))
   let fn = {}
   dirs.forEach( (item) => {
     fn[item] =  async function (src) {
-      let templatePath = path.resolve(__dirname, '../.lotus/template/' + item);
+      let templatePath = path.resolve(__dirname, '../template/' + item);
       try {
         let config = await fse.readFile(`${templatePath}/template.json`)
         config = JSON.parse(config.toString())
@@ -36,7 +36,7 @@ function exportFn() {
         message: '选择你要初始化的模板类型',
         choices: dirs
       }]).then((answers)=>{
-        let templatePath = path.resolve(__dirname, '../.lotus/template/' + answers.type);
+        let templatePath = path.resolve(__dirname, '../template/' + answers.type);
         generate(templatePath)
       })
   }
