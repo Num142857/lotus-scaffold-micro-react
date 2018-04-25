@@ -1,20 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import singleSpaReact from 'single-spa-react';
-import './index.less';
-import App from './models/example/App';
 import registerServiceWorker from './registerServiceWorker';
-import { store} from './Store'
+import RootComponent from './root.component';
+import { storeInstance } from './Store'
+import './index.less';
 
 if(process.env.NODE_ENV==='development'){
-  ReactDOM.render(<App store={{ store: store}} />, document.getElementById('root'));
+  ReactDOM.render(<RootComponent store={storeInstance} globalEventDistributor={true}/>, document.getElementById('root'));
 }
-
 
 const reactLifecycles = singleSpaReact({
     React,
     ReactDOM,
-    rootComponent: (spa) => <App store={spa.customProps.store}/>,
+    rootComponent: (spa) => <RootComponent/>,
     domElementGetter: () => document.getElementById('root')
   });
   

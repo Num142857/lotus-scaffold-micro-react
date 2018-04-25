@@ -1,14 +1,22 @@
-export let store = {
-   count : 0,
+import { createStore } from 'redux';
 
-   alert() {
-        alert()
-    },
-    addition (){
-        this.count ++
-    },
-    subtraction (){
-        this.count --
+const initialState = {
+    count: 0
+};
+
+function reducer(state = initialState, action) {
+    switch (action.type) {
+        case 'INCREMENT':
+            return {
+                count: state.count + 1
+            };
+        case 'DECREMENT':
+            return {
+                count: state.count - 1
+            };
+        default:
+            return state;
     }
 }
 
+export const storeInstance = createStore(reducer);
