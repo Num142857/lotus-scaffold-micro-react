@@ -182,7 +182,7 @@ module.exports = {
           {
             test: /.(css|less)$/,
             // exclude: [path.resolve(__dirname, '../node_modules'), path.resolve(__dirname, '../src/App.css')],
-            exclude: [path.resolve(__dirname, '../src/index.less'), path.resolve(__dirname, '../src/App.css')],
+            // exclude: [path.resolve(__dirname, '../src/index.less'), path.resolve(__dirname, '../src/App.css')],
             loader: ExtractTextPlugin.extract(
               Object.assign(
                 {
