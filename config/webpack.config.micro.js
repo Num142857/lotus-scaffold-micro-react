@@ -237,7 +237,7 @@ module.exports = {
           {
             test: /.(css|less)$/,
             include: [path.resolve(__dirname, '../src/index.less'), path.resolve(__dirname, '../src/App.css')],
-            use: ['style-loader', 'css-loader']
+            use: ['style-loader', 'css-loader','less-loader']
             // Note: this won't work without `new ExtractTextPlugin()` in `plugins`.
           },
           // "file" loader makes sure assets end up in the `build` folder.
