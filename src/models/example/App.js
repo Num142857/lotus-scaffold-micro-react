@@ -8,7 +8,6 @@ import { connect } from 'react-redux';
 class App extends Component {
   constructor(props){
     super(props)
-    console.log(props)
   }
   increment = () => {
     this.props.dispatch({ type: 'INCREMENT' });
@@ -36,14 +35,13 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
-        <button onClick={this.increment}>本地 +</button> 
+        <button onClick={this.increment}>本地事件 +</button> 
         {this.props.count}
-        <button onClick={this.decrement}>本地 -</button>
-
+        <button onClick={this.decrement}>本地事件 -</button>
         <div>
-          <button onClick={this.globalIncrement}>全局 +</button>
+          <button onClick={this.globalIncrement}>全局事件 +</button>
           {this.props.count}
-          <button onClick={this.globalDecrement}>全局 -</button>
+          <button onClick={this.globalDecrement}>全局事件 -</button>
         </div>
       </div>
     );
@@ -51,7 +49,6 @@ class App extends Component {
 }
 
 function mapStateToProps(state) {
-  console.log(state)
   return {
     count: state.count
   };

@@ -19,7 +19,6 @@ export default class RootComponent extends React.Component {
     }
     
     render() {
-        console.log(this.props.globalEventDistributor)
         let ret = <div></div>;
         if (this.state.store && this.state.globalEventDistributor) {
             ret = <Provider store={this.state.store}>
