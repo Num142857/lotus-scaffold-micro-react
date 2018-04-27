@@ -1,10 +1,10 @@
-import { createStore } from 'redux';
+import { createStore } from 'redux'
 
 const initialState = {
-  namespace: "base", //全局Store的命名空间,每个项目必须不一样.请记得修改
+  namespace: 'base', // 全局Store的命名空间,每个项目必须不一样.请记得修改
   count: 0,
   refresh: 0
-};
+}
 
 function reducer(state = initialState, action) {
   switch (action.type) {
@@ -21,8 +21,8 @@ function reducer(state = initialState, action) {
         refresh: state.refresh + 1
       }
     default:
-      return state;
+      return state
   }
 }
 
-export const storeInstance = createStore(reducer);
+export const storeInstance = createStore(reducer)
