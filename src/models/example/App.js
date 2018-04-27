@@ -40,6 +40,7 @@ class App extends Component {
           {this.props.count}
           <button onClick={this.globalDecrement}>全局事件 -</button>
         </div>
+        <div><button onClick={() => { history.pushState(null, '', '/micro-react-test/') }}>跳转到另一个App</button></div>
       </div>
     )
   }
