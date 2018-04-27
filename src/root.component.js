@@ -17,8 +17,9 @@ export default class RootComponent extends React.Component {
     setGlobalEventDistributor(globalEventDistributor) {
         this.setState({ ...this.state, globalEventDistributor: globalEventDistributor });
     }
-
+    
     render() {
+        console.log(this.props.globalEventDistributor)
         let ret = <div></div>;
         if (this.state.store && this.state.globalEventDistributor) {
             ret = <Provider store={this.state.store}>

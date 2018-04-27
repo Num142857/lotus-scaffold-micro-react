@@ -7,7 +7,8 @@ import { storeInstance } from './Store'
 import './index.less';
 
 if(process.env.NODE_ENV==='development'){
-  ReactDOM.render(<RootComponent store={storeInstance} globalEventDistributor={true}/>, document.getElementById('root'));
+  // 开发环境这样处理
+  ReactDOM.render(<RootComponent store={storeInstance} globalEventDistributor={storeInstance}/>, document.getElementById('root'));
 }
 
 const reactLifecycles = singleSpaReact({
