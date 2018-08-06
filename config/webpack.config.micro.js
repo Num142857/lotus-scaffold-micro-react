@@ -181,65 +181,100 @@ module.exports = {
           // in the main CSS file.
           {
             test: /.(css|less)$/,
+            
             // exclude: [path.resolve(__dirname, '../node_modules'), path.resolve(__dirname, '../src/App.css')],
-            exclude: [path.resolve(__dirname, '../src/index.less'), path.resolve(__dirname, '../src/App.css')],
-            loader: ExtractTextPlugin.extract(
-              Object.assign(
-                {
-                  fallback: {
-                    loader: require.resolve('style-loader'),
-                    options: {
-                      hmr: false,
-                      // publicPath: packageConfig.registerConfig.prefix,
-                    },
-                  },
-                  use: [
-                    {
-                      loader: require.resolve('css-loader'),
-                      options: {
-                        importLoaders: 1,
-                        minimize: true,
-                        sourceMap: shouldUseSourceMap,
-                        // publicPath: packageConfig.registerConfig.prefix,
-                      },
-                    },
-                    {
-                      loader: require.resolve('postcss-loader'),
-                      options: {
-                        // publicPath: packageConfig.registerConfig.prefix,
-                        // Necessary for external CSS imports to work
-                        // https://github.com/facebookincubator/create-react-app/issues/2677
-                        ident: 'postcss',
-                        plugins: () => [
-                          require('postcss-flexbugs-fixes'),
-                          autoprefixer({
-                            browsers: [
-                              '>1%',
-                              'last 4 versions',
-                              'Firefox ESR',
-                              'not ie < 9', // React doesn't support IE8 anyway
-                            ],
-                            flexbox: 'no-2009',
-                          }),
-                        ],
-                      },
-                    },
-                    {
-                      loader: require.resolve('less-loader') // compiles Less to CSS
-                    }
+            // exclude: [path.resolve(__dirname, '../src/index.less'), path.resolve(__dirname, '../src/App.css')],
+            exclude: [path.resolve(__dirname, '../node_modules'), path.resolve(__dirname, '../src/index.less')],
+            use: [
+              require.resolve('style-loader'),
+              {
+                loader: require.resolve('css-loader'),
+                options: {
+                  importLoaders: 1,
+                },
+              },
+              {
+                loader: require.resolve('less-loader') // compiles Less to CSS
+              },
+              {
+                loader: require.resolve('postcss-loader'),
+                options: {
+                  // Necessary for external CSS imports to work
+                  // https://github.com/facebookincubator/create-react-app/issues/2677
+                  ident: 'postcss',
+                  plugins: () => [
+                    require('postcss-flexbugs-fixes'),
+                    autoprefixer({
+                      browsers: [
+                        '>1%',
+                        'last 4 versions',
+                        'Firefox ESR',
+                        'not ie < 9', // React doesn't support IE8 anyway
+                      ],
+                      flexbox: 'no-2009',
+                    }),
                   ],
                 },
-                extractTextPluginOptions
-              )
-            ),
+              },
+
+            ],
+            // loader: ExtractTextPlugin.extract(
+            //   Object.assign(
+            //     {
+            //       fallback: {
+            //         loader: require.resolve('style-loader'),
+            //         options: {
+            //           hmr: false,
+            //           // publicPath: packageConfig.registerConfig.prefix,
+            //         },
+            //       },
+            //       use: [
+            //         {
+            //           loader: require.resolve('css-loader'),
+            //           options: {
+            //             importLoaders: 1,
+            //             minimize: true,
+            //             sourceMap: shouldUseSourceMap,
+            //             // publicPath: packageConfig.registerConfig.prefix,
+            //           },
+            //         },
+            //         {
+            //           loader: require.resolve('postcss-loader'),
+            //           options: {
+            //             // publicPath: packageConfig.registerConfig.prefix,
+            //             // Necessary for external CSS imports to work
+            //             // https://github.com/facebookincubator/create-react-app/issues/2677
+            //             ident: 'postcss',
+            //             plugins: () => [
+            //               require('postcss-flexbugs-fixes'),
+            //               autoprefixer({
+            //                 browsers: [
+            //                   '>1%',
+            //                   'last 4 versions',
+            //                   'Firefox ESR',
+            //                   'not ie < 9', // React doesn't support IE8 anyway
+            //                 ],
+            //                 flexbox: 'no-2009',
+            //               }),
+            //             ],
+            //           },
+            //         },
+            //         {
+            //           loader: require.resolve('less-loader') // compiles Less to CSS
+            //         }
+            //       ],
+            //     },
+            //     extractTextPluginOptions
+            //   )
+            // ),
             // Note: this won't work without `new ExtractTextPlugin()` in `plugins`.
           },
-          {
-            test: /.(css|less)$/,
-            include: [path.resolve(__dirname, '../src/index.less'), path.resolve(__dirname, '../src/App.css')],
-            use: ['style-loader', 'css-loader']
-            // Note: this won't work without `new ExtractTextPlugin()` in `plugins`.
-          },
+          // {
+          //   test: /.(css|less)$/,
+          //   include: [path.resolve(__dirname, '../src/index.less'), path.resolve(__dirname, '../src/App.css')],
+          //   use: ['style-loader', 'css-loader','less-loader']
+          //   // Note: this won't work without `new ExtractTextPlugin()` in `plugins`.
+          // },
           // "file" loader makes sure assets end up in the `build` folder.
           // When you `import` an asset, you get its filename.
           // This loader doesn't use a "test" so it will catch all modules
@@ -250,7 +285,7 @@ module.exports = {
             // it's runtime that would otherwise processed through "file" loader.
             // Also exclude `html` and `json` extensions so they get processed
             // by webpacks internal loaders.
-            exclude: [/\.(js|jsx|mjs)$/, /\.html$/, /\.json$/, /\.(css|less)$/,],
+            exclude: [/\.(js|jsx|mjs)$/, /\.html$/, /\.json$/],
             options: {
               name: 'static/media/[name].[hash:8].[ext]',
               publicPath: packageConfig.registerConfig.prefix,
